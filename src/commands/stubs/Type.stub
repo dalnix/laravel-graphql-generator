@@ -1,0 +1,28 @@
+<?php
+namespace App\GraphQL\Type;
+
+use GraphQL\Type\Definition\Type;
+use Folklore\GraphQL\Support\Type as BaseType;
+use GraphQL;
+
+class DummyClass extends BaseType
+{
+        protected $attributes = [
+            'name' => DummyName,
+            'description' => DummyDescription
+        ];
+
+        public function fields()
+        {
+            return DummyFields;
+        }
+
+        protected function resolveCreatedAtField($root, $args)
+        {
+            return (string) $root->created_at->format('Y-m-d H:i:s');
+        }
+        protected function resolveUpdatedAtField($root, $args)
+        {
+            return (string) $root->updated_at->format('Y-m-d H:i:s');
+        }
+}

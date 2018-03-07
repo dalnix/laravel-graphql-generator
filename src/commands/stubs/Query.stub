@@ -1,0 +1,30 @@
+<?php
+namespace App\GraphQL\Query;
+
+use Folklore\GraphQL\Support\Query;
+use GraphQL\Type\Definition\ResolveInfo;
+use GraphQL\Type\Definition\Type;
+use GraphQL;
+
+class DummyClass extends Query
+{
+    protected $attributes = [
+        'name' => DummyName,
+        'description' => DummyDescription
+    ];
+
+    public function type()
+    {
+        return Type::listOf(GraphQL::type(DummyType)); //If error put: UserType
+    }
+
+    public function args()
+    {
+        return DummyArgs;
+    }
+
+    public function resolve($root, $args, $context, ResolveInfo $info)
+    {
+        return '';
+    }
+}

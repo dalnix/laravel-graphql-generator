@@ -1,0 +1,44 @@
+{
+  "name": "dalnix/laravel-graphql-generator",
+  "description": "Generator of Queries, Types and Mutations for laravel-graphql",
+  "keywords": [
+    "framework",
+    "laravel",
+    "graphql",
+    "generator"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dalnix AB",
+      "email": "info@dalnix.se",
+      "homepage": "https://dalnix.se"
+    },
+    {
+      "name": "Christian Janbjer",
+      "email": "christian@dalnix.se",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "laravel/framework": "5.5.*",
+    "folklore/graphql": "^1.0"
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Dalnix\\GraphQLGenerator\\GraphQlGeneratorProvider"
+      ],
+    }
+  },
+  "autoload": {
+    "psr-0": {
+      "Dalnix\\GraphQLGenerator\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}

@@ -1,0 +1,33 @@
+<?php
+
+namespace App\GraphQL\Mutation;
+
+use Folklore\GraphQL\Support\Mutation;
+use GraphQL\Type\Definition\ResolveInfo;
+use GraphQL\Type\Definition\Type;
+use GraphQL;
+
+DummyModels
+
+class DummyClass extends Mutation
+{
+    protected $attributes = [
+        'name' => DummyName,
+        'description' => DummyDescription
+    ];
+
+     public function type()
+    {
+        return GraphQL::type(DummyType);
+    }
+
+    public function args()
+    {
+        return DummyArgs;
+    }
+
+    public function resolve($root, $args, $context, ResolveInfo $info)
+    {
+       return '';
+    }
+}
