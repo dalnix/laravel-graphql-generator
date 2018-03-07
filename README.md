@@ -1,3 +1,3 @@
 # laravel-graphql-generator
 
-WORK IN PROGRESS
+WORK IN PROGRESS.
