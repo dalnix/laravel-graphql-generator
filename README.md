@@ -23,7 +23,7 @@ $ php artisan vendor:publish
 Test your queries or mutations: (app_url)/graphiql/custom (custom is the default laravel graphql generator schema)
 
 ### Notes
-Laravel graphql generator does not generate complete functioning resolve function for your queries or mutations, you have to manually edit your queries or mutations to be able to return data.
+Laravel graphql generator does not generate complete functioning resolve functions for your queries or mutations, you have to manually edit your queries or mutations to be able to return data.
 
 You can't add relations via the command, to do so you must edit your Types in order to be able to make queries with eager loaded relations, see [laravel-graphql's documention on eager loading relationships](https://github.com/Folkloreatelier/laravel-graphql/blob/develop/docs/advanced.md#eager-loading-relationships)
 
