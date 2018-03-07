@@ -22,7 +22,6 @@
   ],
   "require": {
     "php": "^7.0",
-    "laravel/framework": "5.5.*",
     "folklore/graphql": "^1.0"
   },
   "config": {
