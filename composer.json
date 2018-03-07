@@ -30,7 +30,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Dalnix\\GraphQLGenerator\\GraphQlGeneratorProvider"
+        "Dalnix\\GraphQLGenerator\\GraphQLGeneratorProvider"
       ]
     }
   },
