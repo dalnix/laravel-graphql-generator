@@ -11,7 +11,7 @@ Install composer package
 ```sh
 $ composer install dalnix/laravel-graphql-generator
 ```
-Use following command to generate your Types, Queries or Mutations, files will be created in app/GraphQL/Type,  app/GraphQL/Mutation or app/GraphQL/Query.
+Use following command to generate your Types, Queries or Mutations, files will be created in app/GraphQL/Type,  app/GraphQL/Mutation or app/GraphQL/Query. When creating a new Type, all columns of the table in the databasewill be imported, if you want to remove some fields that should'nt be able to access via GraphQL, edit your Type fields method.
 ```sh
 $ php artisan dalnix:graphql:make
 ```
