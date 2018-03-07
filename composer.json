@@ -32,7 +32,7 @@
     "laravel": {
       "providers": [
         "Dalnix\\GraphQLGenerator\\GraphQlGeneratorProvider"
-      ],
+      ]
     }
   },
   "autoload": {
