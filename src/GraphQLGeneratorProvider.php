@@ -68,7 +68,7 @@ class GraphQLGeneratorProvider extends ServiceProvider
             'mutation' => $correct_mutations
         ]);
 
-        GraphQL::addSchema(config('graphql_generator:schema_name'), ['query' => $correct_queries,'mutation' => $correct_mutations]);
+        GraphQL::addSchema(config('graphql_generator')['schema_name'], ['query' => $correct_queries,'mutation' => $correct_mutations]);
 
     }
 }
