@@ -20,7 +20,7 @@ Publish config to change your GraphQL schema
 $ php artisan vendor:publish
 ```
 
-Test your queries or mutations: https://(url)/graphiql/custom (custom is the default laravel graphql generator schema)
+Test your queries or mutations: (app_url)/graphiql/custom (custom is the default laravel graphql generator schema)
 
 ### Notes
 Laravel graphql generator does not generate complete functioning resolve function for your queries or mutations, you have to manually edit your queries or mutations to be able to return data.
