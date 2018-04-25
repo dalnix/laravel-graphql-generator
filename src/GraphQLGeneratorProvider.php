@@ -1,12 +1,18 @@
 <?php namespace Dalnix\GraphQLGenerator;
 
 use GraphQL\Type\SchemaConfig;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\ServiceProvider;
 use Dalnix\GraphQLGenerator\Command\GenerateType;
 use Folklore\GraphQL\Support\Facades\GraphQL;
 
 class GraphQLGeneratorProvider extends ServiceProvider
 {
+    protected $files;
+    public function __construct(Filesystem $files) {
+        parent::__construct();
+        $this->files = $files;
+    }
     public function register()
     {
         if ($this->app->runningInConsole()) {
@@ -37,9 +43,13 @@ class GraphQLGeneratorProvider extends ServiceProvider
 
     public function boot()
     {
+
         $this->publishes([
             __DIR__ . '/config/graphql_generator.php' => config_path('graphql_generator.php'),
         ]);
+        if (!$this->files->isDirectory('app/GraphQL')) {
+            $this->files->makeDirectory('app/GraphQL');
+        }
         $types =  $this->getModels(app_path("") . '/GraphQL/Type', 'App\\GraphQL\\Type\\');
         $mutations =  $this->getModels(app_path("") . '/GraphQL/Mutation', 'App\\GraphQL\\Mutation\\');
         $queries =  $this->getModels(app_path("") . '/GraphQL/Query', 'App\\GraphQL\\Query\\');
