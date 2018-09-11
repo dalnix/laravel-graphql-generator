@@ -2,12 +2,10 @@
 
 use Dalnix\GraphQLGenerator\Command\GenerateType;
 use Folklore\GraphQL\Support\Facades\GraphQL;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 
 class GraphQLGeneratorProvider extends ServiceProvider {
-	
+
 	public function register() {
 		if ( $this->app->runningInConsole() ) {
 			$this->commands( [
@@ -39,17 +37,17 @@ class GraphQLGeneratorProvider extends ServiceProvider {
 		$this->publishes( [
 			__DIR__ . '/config/graphql_generator.php' => config_path( 'graphql_generator.php' ),
 		] );
-		if ( ! is_dir('app/GraphQL' ) ) {
-			Storage::makeDirectory( 'app/GraphQL' );
+		if ( ! is_dir( 'app/GraphQL' ) ) {
+			mkdir( 'app/GraphQL' );
 		}
-		if ( ! is_dir('app/GraphQL/Type')) {
-			Storage::makeDirectory( 'app/GraphQL/Type' );
+		if ( ! is_dir( 'app/GraphQL/Type' ) ) {
+			mkdir( 'app/GraphQL/Type' );
 		}
-		if ( ! is_dir('app/GraphQL/Mutation')) {
-			Storage::makeDirectory( 'app/GraphQL/Mutation' );
+		if ( ! is_dir( 'app/GraphQL/Mutation' ) ) {
+			mkdir( 'app/GraphQL/Mutation' );
 		}
-		if ( ! is_dir('app/GraphQL/Query')) {
-			Storage::makeDirectory( 'app/GraphQL/Query' );
+		if ( ! is_dir( 'app/GraphQL/Query' ) ) {
+			mkdir( 'app/GraphQL/Query' );
 		}
 		$types             = $this->getModels( app_path( "" ) . '/GraphQL/Type', 'App\\GraphQL\\Type\\' );
 		$mutations         = $this->getModels( app_path( "" ) . '/GraphQL/Mutation', 'App\\GraphQL\\Mutation\\' );
