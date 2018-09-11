@@ -37,16 +37,16 @@ class GraphQLGeneratorProvider extends ServiceProvider {
 		$this->publishes( [
 			__DIR__ . '/config/graphql_generator.php' => config_path( 'graphql_generator.php' ),
 		] );
-		if ( ! is_dir( 'app/GraphQL' ) ) {
+		if ( ! file_exists( base_path() . '/app/GraphQL' ) ) {
 			mkdir( 'app/GraphQL' );
 		}
-		if ( ! is_dir( 'app/GraphQL/Type' ) ) {
+		if ( ! file_exists( base_path() . '/app/GraphQL' ) ) {
 			mkdir( 'app/GraphQL/Type' );
 		}
-		if ( ! is_dir( 'app/GraphQL/Mutation' ) ) {
+		if ( ! file_exists( base_path() . '/app/GraphQL' ) ) {
 			mkdir( 'app/GraphQL/Mutation' );
 		}
-		if ( ! is_dir( 'app/GraphQL/Query' ) ) {
+		if ( ! file_exists( base_path() . '/app/GraphQL' ) ) {
 			mkdir( 'app/GraphQL/Query' );
 		}
 		$types             = $this->getModels( app_path( "" ) . '/GraphQL/Type', 'App\\GraphQL\\Type\\' );
@@ -54,13 +54,13 @@ class GraphQLGeneratorProvider extends ServiceProvider {
 		$queries           = $this->getModels( app_path( "" ) . '/GraphQL/Query', 'App\\GraphQL\\Query\\' );
 		$correct_types     = [ ];
 		$correct_mutations = [ ];
-
+		//dd($types);
 		foreach ( $types as $type ) {
 			$class_type                                                        = new $type();
 			$attr                                                              = $class_type->getAttributes();
-			$correct_types[ str_replace( 'App\\GraphQL\\Type\\', '', $type ) ] = $type;
+			GraphQL::addType($type, str_replace( 'App\\GraphQL\\Type\\', '', $type ));
+			#$correct_types[ str_replace( 'App\\GraphQL\\Type\\', '', $type ) ] = $type;
 		}
-
 		foreach ( $mutations as $m ) {
 			$class_type          = new $m();
 			$correct_mutations[] = $m;
@@ -72,7 +72,7 @@ class GraphQLGeneratorProvider extends ServiceProvider {
 		}
 
 		$schema = GraphQL::schema( [
-			'types'    => $correct_types,
+			//'types'    => $correct_types,
 			'query'    => $correct_queries,
 			'mutation' => $correct_mutations
 		] );
