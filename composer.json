@@ -22,7 +22,7 @@
   ],
   "require": {
     "php": "^7.0",
-    "folklore/graphql": "~1.0.0"
+    "folklore/graphql": "^1"
   },
   "config": {
     "preferred-install": "dist"
