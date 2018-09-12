@@ -34,5 +34,5 @@ You can't add relations via the command, to do so you must edit your Types in or
 License
 ----
 
-AGPL
+AGPL-3.0
 

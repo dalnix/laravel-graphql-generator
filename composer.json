@@ -7,7 +7,7 @@
     "graphql",
     "generator"
   ],
-  "license": "AGPL",
+  "license": "AGPL-3.0",
   "authors": [
     {
       "name": "Dalnix AB",
