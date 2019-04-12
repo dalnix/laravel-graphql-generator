@@ -40,13 +40,13 @@ class GraphQLGeneratorProvider extends ServiceProvider {
 		if ( ! file_exists( base_path() . '/app/GraphQL' ) ) {
 			mkdir( 'app/GraphQL' );
 		}
-		if ( ! file_exists( base_path() . '/app/GraphQL' ) ) {
+		if ( ! file_exists( base_path() . '/app/GraphQL/Type' ) ) {
 			mkdir( 'app/GraphQL/Type' );
 		}
-		if ( ! file_exists( base_path() . '/app/GraphQL' ) ) {
+		if ( ! file_exists( base_path() . '/app/GraphQL/Mutation' ) ) {
 			mkdir( 'app/GraphQL/Mutation' );
 		}
-		if ( ! file_exists( base_path() . '/app/GraphQL' ) ) {
+		if ( ! file_exists( base_path() . '/app/GraphQL/Query' ) ) {
 			mkdir( 'app/GraphQL/Query' );
 		}
 		$types             = $this->getModels( app_path( "" ) . '/GraphQL/Type', 'App\\GraphQL\\Type\\' );
